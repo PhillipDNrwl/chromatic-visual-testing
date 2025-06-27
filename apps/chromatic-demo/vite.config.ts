@@ -10,7 +10,7 @@ export default defineConfig(() => ({
     host: 'localhost',
   },
   preview: {
-    port: 4300,
+    port: parseInt(process.env.PREVIEW_PORT || '4300'),
     host: 'localhost',
   },
   plugins: [react()],
