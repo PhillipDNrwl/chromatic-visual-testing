@@ -26,7 +26,7 @@ export default defineConfig({
   webServer: {
     command: 'PREVIEW_PORT=4301 npx nx run @chromatic-demo/chromatic-demo:preview',
     url: 'http://localhost:4301',
-    reuseExistingServer: !Boolean(process.env.CI),
+    reuseExistingServer: !process.env.CI,
     cwd: workspaceRoot,
     timeout: 120 * 1000,
   },
