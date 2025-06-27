@@ -1,0 +1,10 @@
+{
+  "projectToken": "chpt_0664dc5a0110707",
+  "buildScriptName": "@chromatic-demo/chromatic-demo:build-storybook",
+  "storybookBuildDir": "apps/chromatic-demo/storybook-static",
+  "onlyChanged": true,
+  "skip": false,
+  "exitZeroOnChanges": true,
+  "exitOnceUploaded": false,
+  "ignoreLastBuildOnBranch": "main"
+} 
