@@ -1,0 +1,61 @@
+name: 'CI Pipeline'
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+env:
+  NX_CLOUD_DISTRIBUTED_EXECUTION: false # Disable distributed execution for now
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v4
+        
+      - name: Run lint
+        run: npx nx affected -t lint --parallel=3
+        
+      - name: Run tests
+        run: npx nx affected -t test --parallel=3 --ci --code-coverage
+        
+      - name: Run build
+        run: npx nx affected -t build --parallel=3
+        
+      - name: Run E2E tests
+        run: npx nx affected -t e2e --parallel=3
+        
+      - name: Build Storybook for Chromatic
+        run: npx nx run @chromatic-demo/chromatic-demo:build-storybook
+        
+      - name: Publish to Chromatic
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          storybookBuildDir: apps/chromatic-demo/storybook-static
+          exitZeroOnChanges: false # FAIL on visual changes - blocks PR
+          exitOnceUploaded: false # Wait for results
+          onlyChanged: true # Performance optimization
+          skipUpdateCheck: true
+        env:
+          NODE_ENV: production 
