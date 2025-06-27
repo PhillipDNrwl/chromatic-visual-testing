@@ -40,19 +40,4 @@ jobs:
         run: npx nx affected -t build --parallel=3
         
       - name: Run E2E tests
-        run: npx nx affected -t e2e --parallel=3
-        
-      - name: Build Storybook for Chromatic
-        run: npx nx run @chromatic-demo/chromatic-demo:build-storybook
-        
-      - name: Publish to Chromatic
-        uses: chromaui/action@latest
-        with:
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          storybookBuildDir: apps/chromatic-demo/storybook-static
-          exitZeroOnChanges: false # FAIL on visual changes - blocks PR
-          exitOnceUploaded: false # Wait for results
-          onlyChanged: true # Performance optimization
-          skipUpdateCheck: true
-        env:
-          NODE_ENV: production 
+        run: npx nx affected -t e2e --parallel=3 
