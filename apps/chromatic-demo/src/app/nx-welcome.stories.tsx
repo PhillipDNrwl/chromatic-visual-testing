@@ -22,16 +22,4 @@ export const Default: Story = {
   args: {
     title: '@chromatic-demo/chromatic-demo',
   },
-};
-
-export const CustomTitle: Story = {
-  args: {
-    title: 'My Custom App Title',
-  },
-};
-
-export const LongTitle: Story = {
-  args: {
-    title: '@my-very-long-organization-name/my-extremely-long-project-name-that-might-wrap',
-  },
 }; 
