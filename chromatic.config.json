@@ -2,7 +2,7 @@
   "projectToken": "chpt_18a64156df16d9e",
   "buildScriptName": "@chromatic-demo/chromatic-demo:build-storybook",
   "storybookBuildDir": "apps/chromatic-demo/storybook-static",
-  "onlyChanged": true,
+  "onlyChanged": false,
   "skip": false,
   "exitZeroOnChanges": true,
   "exitOnceUploaded": false,

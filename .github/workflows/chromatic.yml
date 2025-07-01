@@ -37,7 +37,6 @@ jobs:
           buildScriptName: 'build-storybook'
           exitZeroOnChanges: false # This makes the job FAIL when there are visual changes
           exitOnceUploaded: false # Wait for build results instead of just uploading
-          onlyChanged: true # Only test changed stories (performance optimization)
-          turboSnap: false # Disable TurboSnap for Vite compatibility
+          onlyChanged: false # Disable TurboSnap optimization to avoid Vite compatibility issues
         env:
           NODE_ENV: production 
