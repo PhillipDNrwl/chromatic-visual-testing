@@ -6,6 +6,5 @@
   "skip": false,
   "exitZeroOnChanges": true,
   "exitOnceUploaded": false,
-  "ignoreLastBuildOnBranch": "main",
-  "turboSnap": false
+  "ignoreLastBuildOnBranch": "main"
 } 
