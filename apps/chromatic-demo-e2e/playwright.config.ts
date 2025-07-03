@@ -3,7 +3,7 @@ import { nxE2EPreset } from '@nx/playwright/preset';
 import { workspaceRoot } from '@nx/devkit';
 
 // For CI, you may want to set BASE_URL to the deployed application.
-const baseURL = process.env['BASE_URL'] || 'http://localhost:4301';
+const baseURL = process.env['BASE_URL'] || 'http://localhost:4300';
 
 /**
  * Read environment variables from file.
@@ -26,9 +26,8 @@ export default defineConfig({
   webServer: {
     command: 'PREVIEW_PORT=4301 npx nx run @chromatic-demo/chromatic-demo:preview',
     url: 'http://localhost:4301',
-    reuseExistingServer: !Boolean(process.env.CI),
+    reuseExistingServer: !process.env.CI,
     cwd: workspaceRoot,
-    timeout: 120 * 1000,
   },
   projects: [
     {
@@ -66,4 +65,13 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     } */
   ],
+  
+  // Global test settings for visual testing
+  expect: {
+    // Global visual threshold - allow small differences
+    toHaveScreenshot: { 
+      threshold: 0.1,  // 10% pixel difference allowed
+      animations: 'disabled',  // Disable CSS animations for consistent screenshots
+    },
+  },
 });

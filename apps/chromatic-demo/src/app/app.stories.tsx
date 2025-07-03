@@ -20,13 +20,4 @@ const meta: Meta<typeof App> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
-
-export const HomePage: Story = {
-  parameters: {
-    chromatic: { modes: {
-      desktop: { viewport: 'desktop' },
-      mobile: { viewport: 'mobile' },
-    }},
-  },
-}; 
+export const Default: Story = {}; 

@@ -16,7 +16,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Required for Chromatic
+          fetch-depth: 0
           
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -35,8 +35,8 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           buildScriptName: 'build-storybook'
-          exitZeroOnChanges: false # This makes the job FAIL when there are visual changes
-          exitOnceUploaded: false # Wait for build results instead of just uploading
-          onlyChanged: true # Only test changed stories (performance optimization)
+          exitZeroOnChanges: false 
+          exitOnceUploaded: false 
+          onlyChanged: false 
         env:
-          NODE_ENV: production 
+          NODE_ENV: development  

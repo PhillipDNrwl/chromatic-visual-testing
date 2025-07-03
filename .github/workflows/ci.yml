@@ -9,7 +9,7 @@ on:
       - main
 
 env:
-  NX_CLOUD_DISTRIBUTED_EXECUTION: false # Disable distributed execution for now
+  NX_CLOUD_DISTRIBUTED_EXECUTION: false 
 
 jobs:
   main:
