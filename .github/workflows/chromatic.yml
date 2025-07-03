@@ -35,8 +35,8 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           buildScriptName: 'build-storybook'
-          exitZeroOnChanges: false # This makes the job FAIL when there are visual changes
-          exitOnceUploaded: false # Wait for build results instead of just uploading
-          onlyChanged: false # Disable TurboSnap optimization to avoid Vite compatibility issues
+          exitZeroOnChanges: false 
+          exitOnceUploaded: false 
+          onlyChanged: false 
         env:
-          NODE_ENV: production 
+          NODE_ENV: development  
