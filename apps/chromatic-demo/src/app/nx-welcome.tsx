@@ -5,7 +5,7 @@
  Delete this file and get started with your project!
  * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  */
-export function NxWelcome({ title }: { title: strind }) {
+export function NxWelcome({ title }: { title: string }) {
   return (
     <>
       <style

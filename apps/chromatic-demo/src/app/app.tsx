@@ -2,7 +2,7 @@
 // import styles from './app.module.css';
 import NxWelcome from './nx-welcome';
 
-import { Route, Routes, Link } from 'react-router-dom';
+import { Route, Routes, Link } from 'r-dom';
 
 
 export function App() {
