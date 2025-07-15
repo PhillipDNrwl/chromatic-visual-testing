@@ -78,6 +78,6 @@
       "library": { "style": "css", "linter": "eslint" }
     }
   },
-  "nxCloudId": "686fdeda60b82d69e7f47a1e",
-  "nxCloudUrl": "https://staging.nx.app"
+  "nxCloudId": "6876656d9abd3f7e7faa00e1",
+  "nxCloudUrl": "http://localhost:4202"
 }
